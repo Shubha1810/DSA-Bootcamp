@@ -9,7 +9,7 @@ target = int(input("enter the target value needed to search:"))
 #to take input in array
 def linearsearch():
     for i in range(0,n):
-        element = int(input())
+        element = int(input("enter elements in an array:"))
         arr.append(element)
         
         if(arr[i] == target):
