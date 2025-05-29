@@ -6,9 +6,9 @@ def GetData():
             if num_elements > 0:
                 try:
                     for i in range(num_elements):
-                        element = int(input("Enter elements in array:"))
+                        element = int(input("Enter the element:"))
                         array.append(element)
-                    print("Array =", array)
+                    print("Array entered:", array)
                     break
                 except ValueError:
                     print("Enter numerical values only for array elements.")
@@ -20,19 +20,20 @@ def GetData():
         exit()
 
 
-def LinearSearch(array, num_elements):
+def CountTargetOccurrences(array, num_elements):
     try:
-        target = int(input("Enter the target value needed to search: "))
-        for index in range(num_elements):
-            if array[index] == target:
-                print("Index =", index)
-                break
-        else:
-            print("Index = -1")
+        target = int(input("Enter the target number to count: "))
+        count = 0
+        for num in array:
+            if num == target:
+                count += 1
+        print("Count:", count)
+        return count
     except ValueError:
-        print("Invalid input. Please enter a numerical target value.")
+        print("Invalid input. Please enter a valid target number.")
+        return 0
 
 
 # Run the program
 array, num_elements = GetData()
-LinearSearch(array, num_elements)
+CountTargetOccurrences(array, num_elements)

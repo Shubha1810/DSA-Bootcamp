@@ -1,43 +1,47 @@
-Problem Statement
-Write a function that searches for a target value in an array of integers using linear search.
+# Linear Search with Input Validation
 
-Approach / Thought Process
-Take Input from User: Number of elements in the array (n)
-                      Elements of the array one by one
-                      The target value to search
+## Overview
 
-Linear Search Function: Traverse the array from start to end.
-                        Compare each element with the target.
-                        If found, print the index and stop.
-                        If not found, return -1.
+This Python program performs a **linear search** to find a target value in a user-defined list. It includes basic input validation and error handling to ensure only numeric values are processed.
 
-Print the Result: Display the index if found.
-                  If the result is -1, indicate that the target was not found.
+## How It Works
 
-Time & Space Complexity
-Time Complexity:
-Best Case: O(1) (if the target is the first element)
-Worst Case: O(n) (if the target is at the end or not present)
+1. The user inputs the length of the array.
+2. Inputs are collected and stored in a list.
+3. The user provides a target value.
+4. The program searches linearly through the array.
+5. If the target is found, its index is printed.
+6. If the target is not found, it prints `Index = -1`.
 
-Space Complexity: O(n)
-Space is required to store n elements in the array.
+## Key Features
+
+- Works for small or unsorted arrays
+- Simple and beginner-friendly logic
+- Handles invalid (non-numeric) inputs gracefully
+- Checks if the array length is valid (>1)
+
+## Example
+
+**Input:**
+Length = 4
+Values = 10 20 30 40
+Target = 30
+
+**Output:**
+[10, 20, 30, 40]
+Index = 2
 
 
-Sample Inputs / Edge Cases
-Sample Input 1:
-Enter the number of elements in array: 5  
-Enter the target value needed to search: 3  
-Input elements: 1 2 3 4 5  
+**Input:**
+Length = 3
+Values = 5 6 7
+Target = 9
 
-Output:
-Index is  3  
-[1, 2, 3, 4, 5]
+**Output:**
+[5, 6, 7]
+Index = -1
 
-Sample Input 2 (Edge Case - Element not present):
-Enter the number of elements in array: 4  
-Enter the target value needed to search: 10  
-Input elements: 2 4 6 8  
+## Notes
 
-Output:
-Index -1  
-[2, 4, 6, 8]
+- Linear search is ideal for small datasets or unsorted data.
+- Avoid using it for large data if performance is critical.

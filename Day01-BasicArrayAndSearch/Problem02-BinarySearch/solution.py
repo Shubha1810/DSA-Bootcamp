@@ -20,19 +20,30 @@ def GetData():
         exit()
 
 
-def LinearSearch(array, num_elements):
+def BinarySearch(array, num_elements):
     try:
-        target = int(input("Enter the target value needed to search: "))
-        for index in range(num_elements):
-            if array[index] == target:
-                print("Index =", index)
+        array.sort()
+        print("Sorted array:", array)
+
+        target = int(input("Enter the target value to search: "))
+
+        start = 0
+        end = num_elements - 1
+
+        while start <= end:
+            mid = (start + end) // 2
+            if array[mid] == target:
+                print("Index =", mid)
                 break
+            elif array[mid] > target:
+                end = mid - 1
+            else:
+                start = mid + 1
         else:
             print("Index = -1")
     except ValueError:
-        print("Invalid input. Please enter a numerical target value.")
+        print("Invalid input. Please enter a valid target number.")
 
 
-# Run the program
 array, num_elements = GetData()
-LinearSearch(array, num_elements)
+BinarySearch(array, num_elements)
