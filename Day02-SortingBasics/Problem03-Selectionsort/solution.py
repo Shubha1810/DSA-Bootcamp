@@ -20,33 +20,29 @@ def GetData():
         exit()
 
 
-def CountSwapsBubblesorting(array, num_elements):
+def Bubblesorting(array, num_elements):
     try:
-        swappedcount = 0
         for index in range(num_elements):
             swapped = False
+            min = index
+            for j in range(index+1, num_elements):
+                if array[j] < array[min]:
+                    min = j
 
-            for j in range(0, num_elements-index-1):
-                if array[j] > array[j+1]:
-                    
-                    temp = array[j]
-                    array[j] = array[j+1]
-                    array[j+1] = temp
+                    temp = array[index]
+                    array[index] = array[min]
+                    array[min] = temp
+
                     swapped = True
-                    swappedcount = swappedcount+1
-            
-
             if not swapped:
                 break
-        print("Number of Swaps :", swappedcount)
         print("Sorted Array is:", array)
         return array
-        
     except ValueError:
         print("Invalid input. Please enter a numerical value.")
 
 
 # Run the program
 array, num_elements = GetData()
-CountSwapsBubblesorting(array, num_elements)
+Bubblesorting(array, num_elements)
 
