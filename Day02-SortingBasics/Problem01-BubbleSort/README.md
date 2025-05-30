@@ -1,3 +1,4 @@
+
 # Bubble Sort in Python
 
 ## Overview
@@ -38,6 +39,6 @@ Edit
 
 ## Notes
 
-- Time Complexity: O(n²)  
-- Space Complexity: O(1)  
+- Time Complexity: O(n²)
+- Space Complexity: O(1)
 - Best used for teaching or small datasets due to inefficiency on large inputs
