@@ -20,23 +20,36 @@ def GetData():
         exit()
 
 
-def Selectionsorting(array, num_elements):
+def SelectionsortingAscending(array, num_elements):
     try:
         for index in range(num_elements):
-            swapped = False
             min = index
             for j in range(index+1, num_elements):
-                if array[j] < array[min]:
+                if (array[j] < array[min]):
                     min = j
 
                     temp = array[index]
                     array[index] = array[min]
                     array[min] = temp
 
-                    swapped = True
-            if not swapped:
-                break
-        print("Sorted Array is:", array)
+        print("Sorted Arrayin Ascending Order is:", array)
+        return array
+    except ValueError:
+        print("Invalid input. Please enter a numerical value.")
+
+def SelectionsortingDescending(array, num_elements):
+    try:
+        for index in range(num_elements):
+            max = index
+            for j in range(index+1, num_elements):
+                if (array[j] > array[max]):
+                    max = j
+
+                    temp = array[index]
+                    array[index] = array[max]
+                    array[max] = temp
+
+        print("Sorted Array in Descending Order is:", array)
         return array
     except ValueError:
         print("Invalid input. Please enter a numerical value.")
@@ -44,5 +57,7 @@ def Selectionsorting(array, num_elements):
 
 # Run the program
 array, num_elements = GetData()
-Selectionsorting(array, num_elements)
+SelectionsortingAscending(array, num_elements)
+SelectionsortingDescending(array, num_elements)
+
 
