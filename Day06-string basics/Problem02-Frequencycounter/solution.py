@@ -1,38 +1,41 @@
 def GetData():
     array = []
+    
     try:
         while True:
-            num_elements = int(input("Enter the number of elements in array: "))
+            num_elements = int(input("Enter the Length of Array = "))
             if num_elements > 1:
                 try:
+                    print("Enter elements in the array:\n")
                     for i in range(num_elements):
-                        element = int(input("Enter elements in array:"))
-                        array.append(element)
+                        val = int(input())
+                        array.append(val)
                     print("Array =", array)
                     break
-                except ValueError:
-                    print("Enter numerical values only for array elements.")
+                except:
+                    print("Enter Numerical values only")
             else:
-                print("Number of elements must be greater than 0. Try again.")
+                print("Length must be a positive number and greater than 1. Please try again.")
+            
         return array, num_elements
-    except ValueError:
-        print("Invalid input. Please enter only integers.")
-        exit()
 
-
-def count_frequencies(array):
-    frequency = {}  # Dictionary to store element: count
+    except:
+        print("Enter only numerical values")
+        
+def Frequency_Counter(array, num_elements):
+        counter = {}
     
-    for i in range(num_elements):
-        if array[i] not in frequency:
-            count = 1
-        for j in range(i + 1, num_elements):
-            if array[i] == array[j]:
-                count += 1
-        frequency[array[i]] = count  # Store count in dictionary
+        for i in range(num_elements):
+            if array[i] not in counter: 
+                count = 1
+                for j in range(i+1,num_elements):
+                    if array[i] == array[j]:
+                        count = count + 1
 
-    print("\nFrequencies of elements:", frequency)
+                counter[array[i]] = count
 
-array, num_elements = GetData()
-count_frequencies(array)
+        print("Frequncy Number= ",counter)
+        
+array,num = GetData()
+Frequency_Counter(array, num)
 
