@@ -11,6 +11,10 @@ def is_valid_parentheses(string):
     stack = []
     paranthesis = {'(':')', '[':']', '{':'}'}
 
+    if len(string) % 2 != 0:
+        print(False)
+        return
+
     for char in string:
         if char in paranthesis:  
             stack.append(char)
@@ -19,7 +23,7 @@ def is_valid_parentheses(string):
                 return False
         else:
             return False  
-    print("Elements in stack",stack)
+   
     return len(stack) == 0  
 
 
