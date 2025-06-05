@@ -16,8 +16,7 @@ def generate_subsets_recursive(nums):
             path.append(nums[i])      
             backtrack(i + 1, path)     
             path.pop()             
-
-
+            
     backtrack(0, [])
     return result
 
