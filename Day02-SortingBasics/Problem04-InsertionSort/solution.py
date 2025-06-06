@@ -20,25 +20,21 @@ def GetData():
         exit()
 
 
-def Bubblesorting(array, num_elements):
-    try:
-        for index in range(1, num_elements):
-            
-                if array[j] < array[min]:
-                    min = j
+def InsertionSort(array, num_elements):
+    for i in range(1, num_elements):
+        key = array[i]
+        j = i - 1
 
-                    temp = array[index]
-                    array[index] = array[min]
-                    array[min] = temp
+        while j >= 0 and array[j] > key:
+            array[j + 1] = array[j]
+            j -= 1
 
-                
-        print("Sorted Array is:", array)
-        return array
-    except ValueError:
-        print("Invalid input. Please enter a numerical value.")
+        array[j + 1] = key
+
+    print("Sorted Array is:", array)
+    return array
 
 
-# Run the program
 array, num_elements = GetData()
-Bubblesorting(array, num_elements)
+InsertionSort(array, num_elements)
 

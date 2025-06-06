@@ -19,31 +19,31 @@ def GetData():
         print("Invalid input. Please enter only integers.")
         exit()
 
-def Slidingwindow(array,num_elements):
+def Slidingwindow(array):
     try:
 
         k =int(input("Enter the target:"))
         if k > num_elements:
             return "Window size k is larger than the array length."
         
-        max_sum = sum(array[:k])
+        subarray = array[:k]
+        window_sum = sum(subarray)
+        max_sum = window_sum
 
-        
-        for i in range(k, num_elements):
-            max_sum = max_sum - array[k-i]
-            return max_sum 
-
-        print("sum = ",max_sum)
+        for i in range(k,num_elements):
+            window_sum += array[i]-array[i-k]
+            if(max_sum<window_sum):
+                print(window_sum)        
+        else:
+            print(max_sum)
 
     except ValueError:
         return "Invalid input for window size k. Please enter a number."
 
 
 
-
 array, num_elements = GetData()
-result = Slidingwindow(array, num_elements)
-print(result)
+Slidingwindow(array)
 
 
 
