@@ -1,46 +1,39 @@
 class Node:
-    def __init__(self, data):
+    def _init_(self, data):
         self.data = data
         self.next = None
 
 class LinkedList:
-    def __init__(self):
+    def _init_(self):
         self.head = None
+        self.count = 0  # Initialize count
 
     def add_head(self, data):
         new_node = Node(data)
         new_node.next = self.head
         self.head = new_node
+        self.count += 1
 
     def add_tail(self, data):
         new_node = Node(data)
         if self.head is None:
             self.head = new_node
-            return
-        current_node = self.head
-        while current_node.next:
-            current_node = current_node.next
-        current_node.next = new_node
+        else:
+            current_node = self.head
+            while current_node.next:
+                current_node = current_node.next
+            current_node.next = new_node
+        self.count += 1
 
-    def delete_byvalue(self, value):
-        if self.head is None:
-            print("The list is empty")
+    def mid(self):
+        if self.count == 0:
+            print("List is empty.")
             return
-
-        if self.head.data == value:
-            self.head = self.head.next
-            print("The node with value deleted:", value)
-            return
-
+        mid_index = self.count // 2
         current = self.head
-        while current.next:
-            if current.next.data == value:
-                current.next = current.next.next
-                print("The node with value deleted:", value)
-                return
+        for i in range(mid_index):
             current = current.next
-
-        print("Node not found")
+        print(f"Middle node value is: {current.data}")
 
     def display(self):
         if self.head is None:
@@ -56,19 +49,18 @@ class LinkedList:
 linked_list = LinkedList()
 
 while True:
-    print("\nChoose an option:" \
-          "\n1. Delete node" \
-          "\n2. Add value at tail" \
-          "\n3. Display list" \
+    print("\nChoose an option:"
+          "\n1. Show middle node"
+          "\n2. Add value at tail"
+          "\n3. Display list"
           "\n4. Exit")
 
     choice = int(input("Enter your choice: "))
 
     if choice == 1:
-        value = int(input("Enter value to delete node: "))
-        linked_list.delete_byvalue(value)
+        linked_list.mid()
     elif choice == 2:
-        value = int(input("Enter value to add to rear: "))
+        value = int(input("Enter value to add to tail: "))
         linked_list.add_tail(value)
     elif choice == 3:
         linked_list.display()
