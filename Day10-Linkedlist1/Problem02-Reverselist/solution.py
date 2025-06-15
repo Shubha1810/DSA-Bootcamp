@@ -55,7 +55,7 @@ while True:
     if choice == 1:
         linked_list.reverse_list()
         print("Reversed list:")
-        linked_list.display()  # ✅ fixed here
+        linked_list.display()  
     elif choice == 2:
         value = int(input("Enter value to add to rear: "))
         linked_list.add_tail(value)
